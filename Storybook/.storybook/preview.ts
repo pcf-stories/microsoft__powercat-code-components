@@ -2,6 +2,11 @@ import type { Preview } from "@storybook/html";
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: ["PCF Components", ["Introduction", "*"]],
+      },
+    },
     actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       expanded: true,
