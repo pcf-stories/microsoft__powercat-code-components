@@ -6,8 +6,8 @@ import { useEffect } from "@storybook/client-api";
 import {
   ComponentFrameworkMockGeneratorReact,
   DataSetMock,
-  NumberPropertyMock,
   StringPropertyMock,
+  WholeNumberPropertyMock,
 } from "@shko.online/componentframework-mock";
 import {
   Breadcrumb,
@@ -51,8 +51,8 @@ export const renderGenerator = () => {
         AccessibilityLabel: StringPropertyMock,
         InputEvent: StringPropertyMock,
         items: DataSetMock,
-        MaxDisplayedItems: NumberPropertyMock,
-        OverflowIndex: NumberPropertyMock,
+        MaxDisplayedItems: WholeNumberPropertyMock,
+        OverflowIndex: WholeNumberPropertyMock,
         Theme: StringPropertyMock,
       });
 
