@@ -78,7 +78,7 @@ export default {
       container.style.margin = "2em";
       container.style.padding = "1em";
       container.style.width = "640px";
-      container.style.height = "480px";
+      //container.style.height = "480px";
       container.style.border = "dotted 1px";
       container.style.resize = "both";
       container.style.overflow = "auto";

@@ -24,13 +24,13 @@ export default {
     (Story) => {
       var container = document.createElement("div");
       container.style.margin = "2em";
-      container.style.padding = "1em";
+      container.style.padding = "1.5em";
       container.style.width = "640px";
-      container.style.height = "80px";
+      container.style.height = "50px";
       container.style.border = "dotted 1px";
       container.style.resize = "both";
       container.style.overflow = "auto";
-
+      container.style.position = "relative";
       var storyResult = Story();
       if (typeof storyResult == "string") {
         container.innerHTML = storyResult;
@@ -49,25 +49,25 @@ export const Breadcrumb = {
       {
         myId: "1",
         [ItemColumns.Key]: 1,
-        [ItemColumns.DisplayName]: "Text1",
+        [ItemColumns.DisplayName]: "Home",
         [ItemColumns.Clickable]: true,
       },
       {
         myId: "2",
         [ItemColumns.Key]: 2,
-        [ItemColumns.DisplayName]: "Text2",
+        [ItemColumns.DisplayName]: "Library",
         [ItemColumns.Clickable]: true,
       },
       {
         myId: "3",
         [ItemColumns.Key]: 3,
-        [ItemColumns.DisplayName]: "Text3",
+        [ItemColumns.DisplayName]: "Folder",
         [ItemColumns.Clickable]: true,
       },
       {
         myId: "4",
         [ItemColumns.Key]: 4,
-        [ItemColumns.DisplayName]: "Text4",
+        [ItemColumns.DisplayName]: "Data",
         [ItemColumns.Clickable]: true,
       },
     ],

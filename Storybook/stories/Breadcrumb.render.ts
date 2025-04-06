@@ -67,6 +67,11 @@ export const renderGenerator = () => {
         ["myId", ItemColumns.DisplayName, "!!items"]
       );
 
+     mockGenerator.context._parameters.items.sorting.push({
+      name: 'myId',
+      sortDirection: 0
+     });
+
       mockGenerator.context._parameters.items._InitItems(args.items || []);
       mockGenerator.context._parameters.items.error =
         args["Dataset Error"] || false;
