@@ -7,9 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "postinstall": "(npm run install:Calendar) && (npm run install:Breadcrumb) && (npm run install:CommandBar) && (npm run install:ContextMenu)",
-    "install:Calendar": "cd ../Calendar && npm ci && npm run refreshTypes",
+    "postinstall": "(npm run install:AutoWidthLabel) && (npm run install:Breadcrumb) && (npm run install:Calendar) && (npm run install:CommandBar) && (npm run install:ContextMenu)",
+    "install:AutoWidthLabel": "cd ../AutoWidthLabel && npm i && npm run refreshTypes",
     "install:Breadcrumb": "cd ../Breadcrumb && npm ci && npm run refreshTypes",
+    "install:Calendar": "cd ../Calendar && npm ci && npm run refreshTypes",
     "install:CommandBar": "cd ../CommandBar && npm ci && npm run refreshTypes",
     "install:ContextMenu": "cd ../ContextMenu && npm ci && npm run refreshTypes",
     "chromatic": "npx chromatic"
