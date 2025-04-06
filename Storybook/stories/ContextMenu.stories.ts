@@ -1,6 +1,6 @@
 import { initializeIcons } from "@fluentui/react/lib/Icons";
 
-initializeIcons(/* optional base url */);
+initializeIcons(/* optional base url */ undefined, { disableWarnings: true });
 
 import { Meta, StoryObj } from "@storybook/html";
 import { StoryArgs, renderGenerator } from "./ContextMenu.render";
@@ -29,7 +29,7 @@ const argTypes = {
 } as const;
 
 export default {
-  title: "PCF Components/ContextMenu",
+  title: "ContextMenu",
   argTypes: getArgTypes(argTypes, getFromResource),
   decorators: [
     (Story) => {

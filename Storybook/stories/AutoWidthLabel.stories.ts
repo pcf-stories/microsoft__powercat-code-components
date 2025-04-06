@@ -1,6 +1,6 @@
 import { initializeIcons } from "@fluentui/react/lib/Icons";
 
-initializeIcons(/* optional base url */);
+initializeIcons(/* optional base url */ undefined, { disableWarnings: true });
 
 import { Meta, StoryObj } from "@storybook/html";
 import { getFromResource } from "./Components/AutoWidthLabel";
@@ -41,7 +41,7 @@ const argTypes = {
 } as const;
 
 export default {
-  title: "PCF Components/AutoWidthLabel",
+  title: "AutoWidthLabel",
   argTypes: getArgTypes(argTypes, getFromResource),
   decorators: [
     (Story) => {

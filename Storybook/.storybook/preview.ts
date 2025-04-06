@@ -4,10 +4,10 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ["PCF Components", ["Introduction", "*"]],
+        includeNames: true,
+        order: ["Introduction"],
       },
     },
-    actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       expanded: true,
       matchers: {

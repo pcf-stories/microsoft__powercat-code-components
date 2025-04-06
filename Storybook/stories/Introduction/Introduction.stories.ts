@@ -5,7 +5,7 @@ import storyHtml from "./Introduction.stories.html";
 import "./Introduction.stories.css";
 
 export default {
-  title: "PCF Components/Introduction",
+  title: "Introduction",
 };
 
 export const Introduction = {
