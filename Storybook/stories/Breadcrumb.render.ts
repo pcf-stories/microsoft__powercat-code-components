@@ -1,8 +1,7 @@
 import * as ReactDOM from "react-dom";
 
-import { useArgs } from "@storybook/preview-api";
+import { useArgs, useEffect } from "@storybook/preview-api";
 import { action } from "@storybook/addon-actions";
-import { useEffect } from "@storybook/client-api";
 import {
   ComponentFrameworkMockGeneratorReact,
   DataSetMock,
@@ -67,10 +66,10 @@ export const renderGenerator = () => {
         ["myId", ItemColumns.DisplayName, "!!items"]
       );
 
-     mockGenerator.context._parameters.items.sorting.push({
-      name: 'myId',
-      sortDirection: 0
-     });
+      mockGenerator.context._parameters.items.sorting.push({
+        name: "myId",
+        sortDirection: 0,
+      });
 
       mockGenerator.context._parameters.items._InitItems(args.items || []);
       mockGenerator.context._parameters.items.error =

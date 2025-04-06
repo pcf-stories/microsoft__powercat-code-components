@@ -1,6 +1,6 @@
 import * as ReactDOM from "react-dom";
 
-import { useArgs } from "@storybook/preview-api";
+import { useArgs, useEffect } from "@storybook/preview-api";
 import {
   ComponentFrameworkMockGeneratorReact,
   DateTimePropertyMock,
@@ -10,7 +10,7 @@ import {
 } from "@shko.online/componentframework-mock";
 import { Calendar, IInputs, IOutputs } from "./Components/Calendar";
 import { PCFStoryArgs } from "./PCFStoryArgs";
-import { useEffect } from "@storybook/client-api";
+
 
 export type DaysOfWeek =
   | "Sunday"

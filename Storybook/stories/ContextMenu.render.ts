@@ -1,8 +1,7 @@
 import * as ReactDOM from "react-dom";
 
-import { useArgs } from "@storybook/preview-api";
+import { useArgs, useEffect } from "@storybook/preview-api";
 import { action } from "@storybook/addon-actions";
-import { useEffect } from "@storybook/client-api";
 import {
   ComponentFrameworkMockGeneratorReact,
   DataSetMock,
