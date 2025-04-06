@@ -1,3 +1,4 @@
+import { dirname, join } from "path";
 import type { StorybookConfig } from "@storybook/html-webpack5";
 const path = require('path');
 import webpack from "webpack";
@@ -8,13 +9,13 @@ const config: StorybookConfig = {
     "../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)",
   ],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-webpack5-compiler-babel"
+    getAbsolutePath("@storybook/addon-links"),
+    getAbsolutePath("@storybook/addon-essentials"),
+    getAbsolutePath("@storybook/addon-interactions"),
+    getAbsolutePath("@storybook/addon-webpack5-compiler-babel")
   ],
   framework: {
-    name: "@storybook/html-webpack5",
+    name: getAbsolutePath("@storybook/html-webpack5"),
     options: {},
   },
   staticDirs: ['./public'],
@@ -24,8 +25,8 @@ const config: StorybookConfig = {
       config.resolve.fallback = config.resolve.fallback || {};
       config.resolve.fallback["fs"] = false;
       config.resolve.alias = config.resolve.alias || {};
-      config.resolve.alias['react'] = path.resolve('./node_modules/react');
-      config.resolve.alias['react-dom'] = path.resolve('./node_modules/react-dom');
+      config.resolve.alias['react'] = path.resolve('../node_modules/react');
+      config.resolve.alias['react-dom'] = path.resolve('../node_modules/react-dom');
     }
 
     if (config.module && config.module.rules)
@@ -60,3 +61,7 @@ const config: StorybookConfig = {
   },
 };
 export default config;
+
+function getAbsolutePath(value: string): any {
+  return dirname(require.resolve(join(value, "package.json")));
+}

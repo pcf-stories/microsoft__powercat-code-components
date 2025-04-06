@@ -12,6 +12,7 @@
     <ProjectGuid>6c8e2a22-7886-4d6c-8ba1-24d1af82b08f</ProjectGuid>
     <OutputPath>$(MSBuildThisFileDirectory)out\controls</OutputPath>
     <PcfBuildMode>production</PcfBuildMode>
+    <PcfEnableAutoNpmInstall>false</PcfEnableAutoNpmInstall>
   </PropertyGroup>
 
   <PropertyGroup>
