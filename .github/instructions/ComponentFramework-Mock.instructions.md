@@ -43,6 +43,27 @@ make sure to run `npm install` after modifying the workspaces to ensure the new 
 
 make sure to run `npm run refreshTypes` after modifying the workspaces to ensure the new component types are properly refreshed.
 
+Always read the `ControlManifest.Input.xml` file of the component to understand the expected inputs, outputs, and resources as this will help you set up the mock context correctly. From this file you can determine the `IInputs` and `IOutputs` types, as well as any `resx` or `css` that need to be loaded for the component.
+
+check if the Storybook component brige file is set up. If not, create a new file in the `Storybook/Stories/Components` folder named `{ComponentName}.ts` and add the following code:
+
+if a `resx` file is used by the component, make sure to load it using the `getFromResource` function exported from the component bridge file as shown below:
+
+```ts
+import resource from "raw-loader!!{Relative Path to resx file}";
+import { generateGetFromResource } from "../getFromResourceGenerator";
+
+export const getFromResource = generateGetFromResource(resource);
+```
+
+also always make sure to export the component and its types from the bridge file as shown below:
+
+```ts
+export { ComponentName } from "Relative Path to Component Entry Point";
+export type { IInputs, IOutputs } from "Relative Path to ManifestTypes";
+
+```
+
 <a name="api-reference"></a>
 ## API Reference
 ### Classes

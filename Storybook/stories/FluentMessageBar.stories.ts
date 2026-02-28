@@ -3,6 +3,8 @@ import { StoryArgs, renderGenerator } from "./FluentMessageBar.render";
 import { ItemColumns, getFromResource } from "./Components/FluentMessageBar";
 import { getArgTypes } from "./getArgTypes";
 
+import "../../FluentMessageBar/FluentMessageBar/css/messagebar.css";
+
 const argTypes = {
   Shape: ["square", "rounded"],
   Intent: ["info", "warning", "error", "success"],
