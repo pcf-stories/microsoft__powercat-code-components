@@ -11,6 +11,7 @@
         "DonutChart",
         "Elevation",
         "Facepile",
+        "FluentMessageBar",
         "GaugeChart",
         "HorizontalBarChart",
         "Icon",
@@ -38,6 +39,7 @@
         "@shko.online/componentframework-mock": "^0.9.0"
     },
     "scripts": {
-        "storybook": "npm run storybook -w Storybook"
+        "storybook": "npm run storybook -w Storybook",
+        "refreshTypes": "npm run refreshTypes --workspaces --if-present"
     }
 }

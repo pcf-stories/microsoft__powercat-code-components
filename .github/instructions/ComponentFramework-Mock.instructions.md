@@ -11,6 +11,7 @@ This library provides classes that simplify executing `PCF` components in a test
 ## Table of contents
 
 - [Usage](#usage)
+  - [Story Setup](#story-setup)
 - [API Reference](#api-reference)
   - [Classes](#classes)
     - [ComponentFrameworkMockGenerator](#componentframeworkmockgenerator)
@@ -27,6 +28,20 @@ There are three main classes in this library that can be used to create a mock c
 3. `ComponentFrameworkMockOrchestrator`: This class orchestrates the generation of mock contexts for multiple components, allowing you to manage and execute tests across different components in a unified manner.
 
 To use these classes, you can follow the examples provided in the [API Reference](#api-reference) section below. Each class has its own set of methods and properties that allow you to customize the mock context according to your testing needs.
+
+## Story Setup
+
+When creating a new story for a component, you need to first check if the `component folder` containing the `packages.json` is already setup in the project npm workspace. If not add the component as a new workspace by adding the following to the root `package.json`:
+
+```json
+"workspaces": [
+    "{Relative Path to Component Folder}"
+]
+``` 
+
+make sure to run `npm install` after modifying the workspaces to ensure the new workspace is properly linked.
+
+make sure to run `npm run refreshTypes` after modifying the workspaces to ensure the new component types are properly refreshed.
 
 <a name="api-reference"></a>
 ## API Reference
