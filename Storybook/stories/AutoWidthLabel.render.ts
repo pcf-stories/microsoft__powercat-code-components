@@ -1,5 +1,3 @@
-import * as ReactDOM from "react-dom";
-
 import { useArgs, useEffect } from "@storybook/preview-api";
 import { action } from "@storybook/addon-actions";
 import {

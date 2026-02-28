@@ -1,6 +1,5 @@
-import { dirname, join } from "path";
+import path, { dirname, join } from "path";
 import type { StorybookConfig } from "@storybook/html-webpack5";
-const path = require('path');
 import webpack from "webpack";
 
 const config: StorybookConfig = {
@@ -23,17 +22,17 @@ const config: StorybookConfig = {
     config.devtool = false;
     if (config.resolve) {
       config.resolve.fallback = config.resolve.fallback || {};
-      config.resolve.fallback["fs"] = false;
+      (config.resolve.fallback as Record<string, boolean | string>)["fs"] = false;
       config.resolve.alias = config.resolve.alias || {};
-      config.resolve.alias['react'] = path.resolve('../node_modules/react');
-      config.resolve.alias['react-dom'] = path.resolve('../node_modules/react-dom');
+      (config.resolve.alias as Record<string, string>)['react'] = path.resolve('../node_modules/react');
+      (config.resolve.alias as Record<string, string>)['react-dom'] = path.resolve('../node_modules/react-dom');
     }
 
     if (config.module && config.module.rules)
       config.module.rules.forEach((rule) => {
-        if (rule && rule["test"] && "a.tsx".match(rule["test"])) {
+        if (rule && typeof rule === 'object' && 'test' in rule && rule.test && rule.test instanceof RegExp && "a.tsx".match(rule.test)) {
           //console.log(rule.use);
-          rule["use"] = [
+          rule.use = [
             {
               loader: "esbuild-loader",
               options: {

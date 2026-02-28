@@ -6,3 +6,4 @@ obj/
 # Mac
 .DS_Store
 ~
+Storybook/storybook-static/

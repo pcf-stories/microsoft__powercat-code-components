@@ -1,6 +1,6 @@
 {
     "name": "pcf-worskpaces",
-    "workspaces":[
+    "workspaces": [
         "AutoWidthLabel",
         "Breadcrumb",
         "Calendar",
@@ -33,5 +33,11 @@
         "SubwayNav",
         "TagList",
         "ThemeGenerator"
-    ]
+    ],
+    "devDependencies": {
+        "@shko.online/componentframework-mock": "^0.9.0"
+    },
+    "scripts": {
+        "storybook": "npm run storybook -w Storybook"
+    }
 }
