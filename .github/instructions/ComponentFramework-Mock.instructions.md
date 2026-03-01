@@ -12,8 +12,8 @@ This library provides classes that simplify executing `PCF` components in a test
 
 - [Usage](#usage)
   - [Story Setup](#story-setup)
-- [API Reference](#api-reference)
-  - [Classes](#classes)
+- [API Reference](@shko.online/ComponentFramework-Mock.API#api-reference)
+  - [Classes](@shko.online/ComponentFramework-Mock.API#classes)
     - [ComponentFrameworkMockGenerator](#componentframeworkmockgenerator)
     - [ComponentFrameworkMockGeneratorReact](#componentframeworkmockgeneratorreact)
     - [ComponentFrameworkMockOrchestrator](#componentframeworkmockorchestrator)
@@ -27,7 +27,7 @@ There are three main classes in this library that can be used to create a mock c
 2. `ComponentFrameworkMockGeneratorReact`: This class generates a mock context for a virtual `PCF` component that uses `React` based on the provided configuration.
 3. `ComponentFrameworkMockOrchestrator`: This class orchestrates the generation of mock contexts for multiple components, allowing you to manage and execute tests across different components in a unified manner.
 
-To use these classes, you can follow the examples provided in the [API Reference](#api-reference) section below. Each class has its own set of methods and properties that allow you to customize the mock context according to your testing needs.
+To use these classes, you can follow the examples provided in the [API Reference](@shko.online/ComponentFramework-Mock.API#api-reference) section below. Each class has its own set of methods and properties that allow you to customize the mock context according to your testing needs.
 
 ## Story Setup
 
@@ -43,9 +43,9 @@ make sure to run `npm install` after modifying the workspaces to ensure the new 
 
 make sure to run `npm run refreshTypes` after modifying the workspaces to ensure the new component types are properly refreshed.
 
-Always read the `ControlManifest.Input.xml` file of the component to understand the expected inputs, outputs, and resources as this will help you set up the mock context correctly. From this file you can determine the `IInputs` and `IOutputs` types, as well as any `resx` or `css` that need to be loaded for the component.
+Always read the `ControlManifest.Input.xml` file of the component to understand the expected inputs, outputs, and resources as this will help you set up the mock context correctly. From this file you can determine the `IInputs` and `IOutputs` types, as well as any `resx` or `css` that need to be loaded for the component. From `ControlManifest.Input.xml` you can also determine if the component uses `React` (defined by `control-type="virtual"`) or not which will help you decide which mock generator class to use. You should always tell the user which mock generator class you decided to use based on the `control-type` defined in the `ControlManifest.Input.xml` file.
 
-check if the Storybook component brige file is set up. If not, create a new file in the `Storybook/Stories/Components` folder named `{ComponentName}.ts` and add the following code:
+check if the Storybook component bridge file is set up. If not, create a new file in the `Storybook/Stories/Components` folder named `{ComponentName}.ts` and add the following code:
 
 if a `resx` file is used by the component, make sure to load it using the `getFromResource` function exported from the component bridge file as shown below:
 
@@ -64,51 +64,4 @@ export type { IInputs, IOutputs } from "Relative Path to ManifestTypes";
 
 ```
 
-<a name="api-reference"></a>
-## API Reference
-### Classes
-
-
-
-<a name="componentframeworkmock"></a>
-#### `ComponentFrameworkMock<IInputs, IOutputs>`
-exported from `@shko.online/componentframework-mock/ComponentFrameworkMock`
-
-**Properties:**
-
-| Name | Type | Description |
-|------|------|-------------|
-| `db` | `MetadataDB` | - |
-| `context` | `ContextMock<IInputs>` | - |
-
-**Methods:**
-
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `ExecuteInit()` | `void` | - |
-| `ExecuteUpdateView()` | `void` | - |
-
-
----
-
-<a name="componentframeworkmockorchestrator"></a>
-#### `ComponentFrameworkMockOrchestrator`
-exported from `@shko.online/componentframework-mock/ComponentFrameworkMockOrchestrator`
-
-**Properties:**
-
-| Name | Type | Description |
-|------|------|-------------|
-| `controls` | `OrchestratorInput<T>` | - |
-| `db` | `MetadataDB` | - |
-| `mockGenerators` | `OrchestratorGenerators<T>` | - |
-
-**Methods:**
-
-| Method | Returns | Description |
-|--------|---------|-------------|
-| `ExecuteInit()` | `void` | - |
-| `ExecuteUpdateView()` | `void` | - |
-
-
----
+if the component is a standard component use the `ComponentFrameworkMockGenerator` class to create a render function for the story as shown in the [Standard Component Story Render Template](@shko.online/StandardComponentStoryRenderTemplate) instructions file. If the component is a virtual `React` component use the `ComponentFrameworkMockGeneratorReact` class to create a render function for the story as shown in the [React Component Story Render Template](@shko.online/ReactComponentStoryRenderTemplate) instructions file.
