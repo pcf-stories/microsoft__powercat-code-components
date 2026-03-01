@@ -6,6 +6,7 @@ import {
   ComponentFrameworkMockGeneratorReact,
   DataSetMock,
   EnumPropertyMock,
+  EventsBagMock,
   StringPropertyMock,
   TwoOptionsPropertyMock,
 } from "@shko.online/componentframework-mock";
@@ -103,6 +104,15 @@ export const renderGenerator = () => {
 
       mockGenerator.context.mode.isVisible = args.isVisible;
       mockGenerator.context.mode.isControlDisabled = args.isDisabled;
+
+      (mockGenerator.context.events as EventsBagMock).OnSelect.callsFake(() => {
+        action("OnSelect")();
+      });
+
+      (mockGenerator.context.events as EventsBagMock).OnDismiss.callsFake(() => {
+        action("OnDismiss")();
+      });
+
 
       mockGenerator.onOutputChanged.callsFake((outputs) => {
         action("OutputChanged")(outputs);

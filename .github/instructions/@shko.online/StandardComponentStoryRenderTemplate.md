@@ -1,5 +1,5 @@
 # Standard Component Story Render Template
-If the `PCF` component is a standard component you must build a template to place in the `stories\{ComponentName}.render.ts` that uses `ComponentFrameworkMockGenerator<IInputs, IOutputs>` to render the component as follows:
+If the `PCF` component is a standard component you must build a template to place in the `stories\{ComponentName}.render.ts` that uses [`ComponentFrameworkMockGenerator<IInputs, IOutputs>`](ComponentFramework-Mock/API#componentframeworkmockgeneratoriinputs-ioutputs) to render the component as follows:
 
 ```ts
 // necessary imports
@@ -39,10 +39,12 @@ export const renderGenerator = () => {
       mockGenerator.context.mode.isVisible = args.isVisible;
       mockGenerator.context.mode.isControlDisabled = args.isDisabled;
 
+      // IMPORTANT: Should always be called before `mockGenerator.ExecuteInit()`
       mockGenerator.context._SetCanvasItems({
         /* Input or Bound Parameters mapped to story args */
       });
 
+      // IMPORTANT: Should only be called exactly once 
       mockGenerator.ExecuteInit();
     }
 
@@ -50,6 +52,8 @@ export const renderGenerator = () => {
       mockGenerator.context.mode.isVisible = args.isVisible;
       mockGenerator.context.mode.isControlDisabled = args.isDisabled;
       // for each parameter of type input or bound we use the typed method to update the value from Storybook like follows `mockGenerator.context._parameters.{Parameter}._SetValue(args.{Parameter});`
+
+      // Important: Should always be called 
       mockGenerator.ExecuteUpdateView();
     }
 

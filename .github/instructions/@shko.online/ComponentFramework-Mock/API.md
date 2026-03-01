@@ -16,8 +16,8 @@ exported from `@shko.online/componentframework-mock`
 
 | Method | Returns | Description |
 |--------|---------|-------------|
-| `ExecuteInit()` | `void` | - |
-| `ExecuteUpdateView()` | `void` | - |
+| `ExecuteInit()` | `void` | MUST be called exactly once to Initialize the component under test. Might do component render on the `HTMLElement` supplied in the constructor |
+| `ExecuteUpdateView()` | `void` | Can be called more than once to Update the component render on the `HTMLElement` supplied in the constructor |
 
 
 ---
@@ -30,15 +30,15 @@ exported from `@shko.online/componentframework-mock`
 
 | Name | Type | Description |
 |------|------|-------------|
-| `db` | `MetadataDB` | - |
-| `context` | `ContextMock<IInputs>` | - |
+| `db` | `MetadataDB` | Offers access to the in-memory database that mimics a dataverse environment |
+| `context` | `ContextMock<IInputs>` | Fake implementation of `ComponentFramework.Context` specific to the component under test |
 
 **Methods:**
 
 | Method | Returns | Description |
 |--------|---------|-------------|
-| `ExecuteInit()` | `void` | - |
-| `ExecuteUpdateView()` | `ReactElement` | - |
+| `ExecuteInit()` | `void` | MUST be called exactly once to Initialize the component under test |
+| `ExecuteUpdateView()` | `ReactElement` | Can be called more than once to Update the component render returned as a `ReactElement` |
 
 
 ---
